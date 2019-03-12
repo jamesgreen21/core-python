@@ -36,13 +36,30 @@ def test_is_in(collection, item):
     assert item in collection, "{0} does not contain {1}".format(collection, item)
     
     
-# Test to fail the `test_are_equal` function
-test_are_equal(even_number_of_evens([1,2,3,4,5]), 2)
+def test_not_in(collection, item):
+    """
+    Check to ensure that a given collection does not contain a given value.
+    Raises AssertionError if the `item` is found in `collection`
+    `collection` is the collection in question
+    `item` is the thing that we want to check for
+    """
+    assert item not in collection, "{0} is not in {1}".format(
+        item, collection)
 
-# Test to fail the `test_not_equal` function
-test_not_equal(0, 1)
 
-# Test to fail the `test_is_in` function
-test_is_in([1,2,3], 2)
+def test_between(upper_limit, lower_limit, actual):
+    """
+    Check to ensure that a number is between two other numbers. Raises
+    AssertionError if the number is not between the other two numbers
+    """
+    assert lower_limit <= actual <= upper_limit, "{0} is not between {1} and {2}".format(actual, lower_limit, upper_limit)
+    
+    
+# # Test to fail the `test_are_equal` function
+# test_are_equal(even_number_of_evens([1,2,3,4,5]), 2)
 
-print("All tests passed!")
+# # Test to fail the `test_not_equal` function
+# test_not_equal(0, 1)
+
+# # Test to fail the `test_is_in` function
+# test_is_in([1,2,3], 2)
